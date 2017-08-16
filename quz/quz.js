@@ -9,6 +9,13 @@
  */
 function dcate(A, B) {
     /** Fill in here **/
+    for (var l = A; l.head; l = l.tail) {
+        if (l.tail == null) {
+            l.tail = B
+            break
+        }
+    }
+    return A
 }
 
 /**
@@ -24,6 +31,26 @@ function dcate(A, B) {
  */
 function sub(L, start, len) {
     /** Fill in here **/
+    var temp = []
+    var flag = 0
+    var l
+    for (l = L; l.tail !== null; l = l.tail) {
+        if (l.head == start) {
+            flag = 1
+            for (var i = 0; i < len; i++) {
+                if (l.tail !== null) {
+                    temp.push(l.head)
+                    l = l.tail
+                }
+            }
+            temp.push(l.head)
+            break;
+        }
+    }
+    if (!flag) {
+        console.log('不存在start')
+    }
+    return List.list(temp)
 }
 
 // module.exports = {
